@@ -18,7 +18,7 @@ const customNavBar = () => {
             console.log(response,'this is reposne')
             if(response.success) {
                 userdata.setUser(null)
-                setTimeOut(()=> {
+                setTimeout(()=> {
                     router.push("/")
                 },2000)
             }else {
