@@ -16,7 +16,7 @@ const customNavBar = () => {
         try {
             const response = await logout()
             console.log(response,'this is reposne')
-            if(response.status) {
+            if(response.success) {
                 userdata.setUser(null)
                 setTimeOut(()=> {
                     router.push("/")
