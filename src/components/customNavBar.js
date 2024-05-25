@@ -15,8 +15,15 @@ const customNavBar = () => {
     async function LogOut() {
         try {
             const response = await logout()
-            userdata.setUser(null)
-            router.push("/")
+            console.log(response,'this is reposne')
+            if(response.status) {
+                userdata.setUser(null)
+                setTimeOut(()=> {
+                    router.push("/")
+                },2000)
+            }else {
+                throw new Error(response.message || "Something Went Wrong" )
+            }
         } catch (err) {
             toast.error(err?.message || "Something Went Wrong")
         }
